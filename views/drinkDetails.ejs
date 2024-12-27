@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+    <div class="container">
+        <%- include("Partials/header.ejs") %>
+        <% var searchdata=JSON.parse(locals.searchdataDetails) %>
+       
+        <div>
+            <%if(searchdata){%>
+               
+                   
+                        <h3 class="imagetext"><%= searchdata.strDrink %></h3>
+                   
+                    <div class="Details">
+                        <img src=<%= searchdata.strDrinkThumb%> width="250px" height="250px"/>
+                        <% if(searchdata.strTags) {%>
+                       <%searchdata.strTags.forEach(element => {%>
+                           <label id="tags">element</label>
+                      <% }); }%>
+                   </div>
+                
+                   <h3 class="imagetext" >Ingredients</h3>
+                     <div class="Detailsimg">
+                       
+                        <div class="item">
+                           
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient1 %>-small.png" />
+                              
+                            <p><%= searchdata.strMeasure1 %> <%= searchdata.strIngredient1 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient2 %>-small.png" />
+                              
+                            <p><%= searchdata.strMeasure2 %> <%= searchdata.strIngredient2 %></p>
+                        </div>
+                        <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient3 %>-small.png" />
+                              
+                            <p><%= searchdata.strMeasure3 %> <%= searchdata.strIngredient3 %></p>
+                           </div>
+                           <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient4 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure4 %> <%= searchdata.strIngredient4 %></p>
+                           </div>
+                           <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient5 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure5 %> <%= searchdata.strIngredient5 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient6 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure6 %> <%= searchdata.strIngredient6 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient7 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure7 %> <%= searchdata.strIngredient7 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient8 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure8 %> <%= searchdata.strIngredient8 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient9 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure9 %> <%= searchdata.strIngredient9 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient10 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure10 %> <%= searchdata.strIngredient10 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient11 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure11 %> <%= searchdata.strIngredient11 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient12 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure12 %> <%= searchdata.strIngredient12%></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient13 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure13 %> <%= searchdata.strIngredient13%></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient14 %>-small.png" />
+                              
+                              
+                            <p><%= searchdata.strMeasure14 %> <%= searchdata.strIngredient14 %></p>
+                            </div>
+                            <div class="item">
+                            <img src="https://thecocktaildb.com/images/ingredients/<%= searchdata.strIngredient15 %>-small.png" />
+                             
+                            <p><%= searchdata.strMeasure15 %> <%= searchdata.strIngredient15 %></p>
+                           </div>
+                              
+
+                             </div> 
+                
+                             <%}%>
+                             <% if(locals.error){ %>
+                                 <label>No drinks are available at the moment please check after some time.</label>
+                                <%  }%>
+                </div>
+ 
+                <div class="furtherdata">
+                    <h2>Instructions</h2>
+                    <p><%=searchdata.strInstructions%></p>
+                    <h2>Glass</h2>
+                    <p>Serve : <%=searchdata.strGlass%></p>
+                    
+                </div>
+                <%- include("Partials/footer.ejs") %>
+       
+</div>
+
+    
+</body>
+</html>

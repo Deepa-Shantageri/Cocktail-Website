@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search data</title>
+</head>
+<body>
+    <div class="container">
+        <%- include("Partials/header.ejs") %>
+        <h1>Browse Cocktails</h1>
+        <div class="OrdinaryDrink">
+
+            
+            <% let count=0; %>
+            <%if(locals.searchdata){%>
+                <% locals.searchdata.drinks.forEach(element => {%>
+                    <% if(count<8){%>
+                    <div class="item">
+                     <img src=<%= element.strDrinkThumb%> width="250px" height="250px"/>
+                     <span class="imagetext"><%= element.strDrink %></span>
+                    </div>
+                    
+                    <% count++;} %> 
+                <%}); }%>
+       
+       <% if(locals.error){ %>
+        <label>No drinks are available at the moment please check after some time.</label>
+       <%  }%>
+    </div>
+
+        <%- include("Partials/footer.ejs") %>
+   </div>     
+</body>
+</html>

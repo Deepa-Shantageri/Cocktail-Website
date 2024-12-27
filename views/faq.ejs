@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+</head>
+<body>
+    <div class="container">
+        <%- include("Partials/header.ejs") %>
+        <div class="faqdiv">
+            <img src="/images/faq.png" width="100px" height="100px"/>
+            <p class="question"><b>How do I add a cocktail?</b></p>
+            <p>Only Patreon supporters can add new cocktails. The link is on Patreon as a news item. Just make sure you have a nice large JPG image to upload after you add them.
+            </p>
+            <p class="question"><b>How do I apply for an API key?</b></p>
+            <p>If you are a developer, then you can use the test api key of '1' to get started.
+                Once you have written your app you can support us on Patreon and apply for a production API key via email. API keys usually take 24hrs.</p>
+                <p class="question"><b>How do I upload an image?</b></p>
+                <p>Just click the red upload image button and upload a picture that is square dimensions. We recomend 700x700 size.</p>
+                <p class="question"><b>Are there any limits on the API?</b></p>
+                <p>No limits, the API is unlimited usage.</p>
+                <p class="question"><b>I'm have a commercial app, can I use the database?</b></p>
+                <p>Yes! But we expect you to sign up on Patreon. We are non-profit and all support goes towards the site.</p>
+            </div>
+        <%- include("Partials/footer.ejs") %>
+    </div>
+</body>
+</html>

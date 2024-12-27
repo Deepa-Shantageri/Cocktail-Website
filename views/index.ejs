@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="/styles.css"/>
+    <title>Cocktail Website</title>
+</head>
+<body>
+    <div class="container">
+   <%- include("Partials/header.ejs") %>
+   
+        <div class="firstdiv">
+        <div class="leftcocktail">
+            <img src="/images/cocktail_left.png" alt="left cocktail image" width="150px" height="150px"/>
+        </div>
+        <div class="Cocktailheading">
+            <h1>Welcome to ThecocktailDB</h1>
+            <p>An open, crowd-sourced database of drinks and cocktails from around the world.</p>
+        </div>
+        <div class="leftcocktail">
+            <img src="/images/cocktail_right.png" alt="right cocktail image" width="150px" height="150px"/>
+        </div>
+    </div>
+        <hr/>
+        <div>
+            <form class="form" action="/search" method="POST">
+                <input type="text" name="searchdata" placeholder="Search for a <%=selecteddrinktype%>"><button  type="submit" class="btn btn-default" height="10px">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button></input>     
+            </form>
+            <form class="form" action="/categories" method="post">
+            <select class="categoriesdropdown" name="categories">
+                <option value=""><a href="#">Select Categories</a></option>
+                <% locals.categoriesdrinks.forEach(element => {%>
+                    <option  value="<%=element.strCategory%>">
+                        <%= element.strCategory %></option>
+               <%  }); %>
+            </select>
+            <button type="submit" class="form-submit">go</button> 
+        </form>
+         <form class="form" action="/glasses" method="post">
+            <select class="glassesdropdown" name="glasses">
+                <option value=""><a href="#">Select glassdrinks</a></option>
+                <% locals.glassdrinks.forEach(element => {%>
+                    <option  value="<%= element.strGlass %>"  >
+                        <%= element.strGlass %></option>
+               <%  }); %>
+            </select> 
+            <button type="submit" class="form-submit">go</button>
+        </form>
+        <form class="form" action="/alcoholics" method="post">
+            <select class="alcoholicdropdown" name="Alcoholic">
+                <option value=""><a href="#">Select Alcoholic drinks</a></option>
+                <% locals.alcoholicdrink.forEach(element => {%>
+                    <option  value="<%=element.strAlcoholic%> " >
+                        <%= element.strAlcoholic %></option>
+               <%  }); %>
+            </select> 
+            <button type="submit" class="form-submit">go</button>
+        </form>
+        <form class="form" action="/Ingredients" method="post"> 
+            <select class="ingredientsdropdown" name="Ingredients">
+                <option value=""><a href="#">Select Ingredients</a></option>
+                <% locals.ingredientsdrinks.forEach(element => {%>
+                    <option  value="<%=element.strIngredient1%>" ><%= element.strIngredient1 %></option>
+               <%  }); %>
+            </select> 
+            <button type="submit" class="form-submit">go</button>
+        </form>
+            <div class="drinkstype"> <h4><%= locals.selecteddrinktype%></h4></div>
+         
+            <div class="OrdinaryDrink">
+
+            
+                <% let count=0; %>
+                <%if(locals.data){%>
+                    <% locals.data.drinks.forEach(element => {%>
+                        <% if(count<8){%>
+                        <div class="item">
+                           
+                        <a href="/Details/<%= element.strDrink %>"><img src=<%= element.strDrinkThumb%> width="250px" height="250px"/></a> 
+                         <span class="imagetext"><%= element.strDrink %></span>
+                        </div>
+                        
+                        <% count++;} %> 
+                    <%}); }%>
+           
+           <% if(locals.error){ %>
+            <label>No drinks are available at the moment please check after some time.</label>
+           <%  }%>
+        </div>
+        </div>
+        <%- include("Partials/footer.ejs") %>
+    </div>
+   
+</body>
+</html>
